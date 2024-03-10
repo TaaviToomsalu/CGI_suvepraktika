@@ -1,21 +1,29 @@
 package movieapp.model;
 
+import java.time.LocalTime;
+
 public class Movie {
     private Long id;
     private String title;
     private String genre;
     private int duration;
+    private String ageRating;
+    private LocalTime startTime;
+    private String language;
 
     //Default constructor
     public Movie() {
     }
 
     //Constructor
-    public Movie(Long id, String title, String genre, int duration) {
+    public Movie(Long id, String title, String genre, int duration, String ageRating, LocalTime startTime, String language) {
         this.id = id;
         this.title = title;
         this.genre = genre;
         this.duration = duration;
+        this.ageRating = ageRating;
+        this.startTime = startTime;
+        this.language = language;
     }
 
     //Getters
@@ -60,5 +68,29 @@ public class Movie {
                 ", genre='" + genre + '\'' +
                 ", duration='" + duration + '\'' +
                 '}';
+    }
+
+    public String getAgeRating() {
+        return ageRating;
+    }
+
+    public void setAgeRating(String ageRating) {
+        this.ageRating = ageRating;
+    }
+
+    public LocalTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }
