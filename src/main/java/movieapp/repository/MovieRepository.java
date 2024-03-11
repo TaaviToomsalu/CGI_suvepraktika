@@ -11,6 +11,8 @@ public interface MovieRepository {
     List<Movie> findByAgeRating(String ageRating);
     List<Movie> findByStartTime(LocalTime startTime);
     List<Movie> findByLanguage(String language);
+
+    void addAll(List<Movie> movies);
     /*
     void save(Movie movie);
     void update(Movie movie);

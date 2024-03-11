@@ -107,4 +107,9 @@ public class MovieRepositoryImpl implements MovieRepository {
             default -> 0; // Unknown rating
         };
     }
+
+    @Override
+    public void addAll(List<Movie> movies) {
+        this.movies.addAll(movies);
+    }
 }
