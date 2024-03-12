@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19f4fb0c-6181-4680-99c3-f89578a71cae" name="Changes" comment="DataInitializer, spring starter and javax dependencies, findAll method in repo">
-      <change afterPath="$PROJECT_DIR$/data/CGI_praktika.mv.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/CGI_praktika.trace.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/movieapp/MovieApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/movieapp/controller/MovieController.java" afterDir="false" />
+    <list default="true" id="19f4fb0c-6181-4680-99c3-f89578a71cae" name="Changes" comment="H2 set up, annotations">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/movieapp/repository/package-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/movieapp/model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/movieapp/model/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/movieapp/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/movieapp/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/CGI_praktika.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/CGI_praktika.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/CGI_praktika.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/CGI_praktika.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/movieapp/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/movieapp/model/UserAccount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/movieapp/repository/MovieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/movieapp/repository/MovieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/movieapp/repository/MovieRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/movieapp/repository/MovieRepositoryImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="package-info" />
       </list>
     </option>
   </component>
@@ -104,7 +103,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710140821959</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="H2 set up, annotations">
+      <option name="closed" value="true" />
+      <created>1710231631874</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1710231631875</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -123,6 +130,7 @@
     <MESSAGE value="Architecture, User and Movie models" />
     <MESSAGE value="Basic functionalities for movie recommendation and seat recommendation" />
     <MESSAGE value="DataInitializer, spring starter and javax dependencies, findAll method in repo" />
-    <option name="LAST_COMMIT_MESSAGE" value="DataInitializer, spring starter and javax dependencies, findAll method in repo" />
+    <MESSAGE value="H2 set up, annotations" />
+    <option name="LAST_COMMIT_MESSAGE" value="H2 set up, annotations" />
   </component>
 </project>

@@ -14,6 +14,7 @@ public class DataInitializer {
     private final MovieRepository movieRepository;
 
     public DataInitializer(MovieRepository movieRepository) {
+
         this.movieRepository = movieRepository;
     }
 
@@ -26,6 +27,6 @@ public class DataInitializer {
         // Add more movies as needed
 
         // Save movies to the repository
-        movieRepository.addAll(movies);
+        movieRepository.saveAll(movies);
     }
 }

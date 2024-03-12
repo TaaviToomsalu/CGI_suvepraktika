@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class User {
+public class UserAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,11 +14,11 @@ public class User {
     private List<Movie> viewingHistory;
 
     // Default constructor
-    public User() {
+    public UserAccount() {
     }
 
     //Constructor
-    public User(Long id, String username, List<Movie> viewingHistory) {
+    public UserAccount(Long id, String username, List<Movie> viewingHistory) {
         this.id = id;
         this.username = username;
         this.viewingHistory = viewingHistory;

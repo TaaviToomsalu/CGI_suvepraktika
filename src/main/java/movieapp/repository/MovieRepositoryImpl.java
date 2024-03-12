@@ -3,9 +3,14 @@ package movieapp.repository;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import movieapp.model.Movie;
+import java.util.Optional;
 
-public class MovieRepositoryImpl implements MovieRepository {
+import movieapp.model.Movie;
+import org.springframework.lang.NonNullApi;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public abstract class MovieRepositoryImpl implements MovieRepository {
 
     private final List<Movie> movies = new ArrayList<>();
 
@@ -15,13 +20,13 @@ public class MovieRepositoryImpl implements MovieRepository {
     }
 
     @Override
-    public Movie findById(Long id) {
+    public Optional<Movie> findById(Long id) {
         for (Movie movie : movies) {
             if (movie.getId().equals(id)) {
-                return movie;
+                return Optional.of(movie);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     @Override
