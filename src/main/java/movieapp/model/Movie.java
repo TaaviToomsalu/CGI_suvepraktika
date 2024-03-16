@@ -3,8 +3,6 @@ package movieapp.model;
 import jakarta.persistence.*;
 
 import java.time.LocalTime;
-import java.util.List;
-
 
 @Table(name= "MOVIES")
 @Entity
@@ -24,7 +22,8 @@ public class Movie {
     }
 
     //Constructor
-    public Movie(String title, String genre, int duration, String ageRating, LocalTime startTime, String language) {
+    public Movie(int id, String title, String genre, int duration, String ageRating, LocalTime startTime, String language) {
+        this.id = id;
         this.title = title;
         this.genre = genre;
         this.duration = duration;

@@ -14,6 +14,8 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     List<Movie> findByStartTime(LocalTime startTime);
     List<Movie> findByLanguageIgnoreCase(String language);
 
+    List<Movie> findByStartTimeAfterOrStartTimeEquals(LocalTime startTimeParsed, LocalTime startTimeParsed1);
+
     //void addAll(List<Movie> movies);
     /*
     void save(Movie movie);
