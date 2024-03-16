@@ -12,7 +12,7 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     List<Movie> findByGenre(String genre);
     List<Movie> findByAgeRating(String ageRating);
     List<Movie> findByStartTime(LocalTime startTime);
-    List<Movie> findByLanguage(String language);
+    List<Movie> findByLanguageIgnoreCase(String language);
 
     //void addAll(List<Movie> movies);
     /*

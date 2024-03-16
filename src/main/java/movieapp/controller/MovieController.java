@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import movieapp.model.Movie;
 import movieapp.repository.MovieRepository;
 
+import java.time.LocalTime;
 import java.util.List;
 
 @RestController
@@ -15,6 +16,11 @@ public class MovieController {
 
     @Autowired
     private MovieRepository movieRepository;
+
+    @GetMapping("/")
+    public ResponseEntity<String> helloWorld() {
+        return ResponseEntity.ok("Hello, world!");
+    }
 
     @GetMapping("/movies")
     public ResponseEntity<List<Movie>> getAllMovies() {
@@ -28,5 +34,22 @@ public class MovieController {
         return ResponseEntity.ok(movies);
     }
 
-    // Define other endpoints for filtering, recommendations, etc.
+    @GetMapping("/movies/language")
+    public ResponseEntity<List<Movie>> getMoviesByLanguage(@RequestParam String language) {
+        List<Movie> movies = movieRepository.findByLanguageIgnoreCase(language);
+        return ResponseEntity.ok(movies);
+    }
+
+    @GetMapping("/movies/start-time")
+    public ResponseEntity<List<Movie>> getMoviesByStartTime(@RequestParam String startTime) {
+        LocalTime startTimeParsed = LocalTime.parse(startTime);
+        List<Movie> movies = movieRepository.findByStartTime(startTimeParsed);
+        return ResponseEntity.ok(movies);
+    }
+
+    @GetMapping("/movies/age-rating")
+    public ResponseEntity<List<Movie>> getMoviesByAgeRating(@RequestParam String ageRating) {
+        List<Movie> movies = movieRepository.findByAgeRating(ageRating);
+        return ResponseEntity.ok(movies);
+    }
 }

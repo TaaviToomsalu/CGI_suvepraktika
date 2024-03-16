@@ -1,18 +1,17 @@
 package movieapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalTime;
+import java.util.List;
 
 
+@Table(name= "MOVIES")
 @Entity
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String title;
     private String genre;
     private int duration;
@@ -25,8 +24,7 @@ public class Movie {
     }
 
     //Constructor
-    public Movie(Long id, String title, String genre, int duration, String ageRating, LocalTime startTime, String language) {
-        this.id = id;
+    public Movie(String title, String genre, int duration, String ageRating, LocalTime startTime, String language) {
         this.title = title;
         this.genre = genre;
         this.duration = duration;
@@ -36,7 +34,7 @@ public class Movie {
     }
 
     //Getters
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
@@ -53,7 +51,7 @@ public class Movie {
     }
 
     // Setters
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

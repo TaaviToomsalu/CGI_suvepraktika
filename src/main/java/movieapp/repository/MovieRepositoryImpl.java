@@ -20,16 +20,6 @@ public abstract class MovieRepositoryImpl implements MovieRepository {
     }
 
     @Override
-    public Optional<Movie> findById(Long id) {
-        for (Movie movie : movies) {
-            if (movie.getId().equals(id)) {
-                return Optional.of(movie);
-            }
-        }
-        return Optional.empty();
-    }
-
-    @Override
     public List<Movie> findByGenre(String genre) {
         List<Movie> result = new ArrayList<>();
         for (Movie movie : movies) {
@@ -61,19 +51,6 @@ public abstract class MovieRepositoryImpl implements MovieRepository {
         }
         return result;
     }
-
-    @Override
-    public List<Movie> findByLanguage(String language) {
-        List<Movie> result = new ArrayList<>();
-        for (Movie movie : movies) {
-            if (movie.getLanguage().equalsIgnoreCase(language)) {
-                result.add(movie);
-            }
-        }
-        return result;
-    }
-
-    // Implement other methods similarly
 
     /*
     @Override
@@ -111,10 +88,5 @@ public abstract class MovieRepositoryImpl implements MovieRepository {
             case "NC-17" -> 5;
             default -> 0; // Unknown rating
         };
-    }
-
-    @Override
-    public void addAll(List<Movie> movies) {
-        this.movies.addAll(movies);
     }
 }
