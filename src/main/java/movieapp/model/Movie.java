@@ -2,6 +2,7 @@ package movieapp.model;
 
 import jakarta.persistence.*;
 
+import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 @Table(name= "MOVIES")
@@ -33,38 +34,13 @@ public class Movie {
     }
 
     //Getters
-    public int getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
 
     public String getGenre() {
         return genre;
     }
 
-    public int getDuration() {
-        return duration;
-    }
 
     // Setters
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
     // Override toString method
     @Override
     public String toString() {
@@ -80,23 +56,10 @@ public class Movie {
         return ageRating;
     }
 
-    public void setAgeRating(String ageRating) {
-        this.ageRating = ageRating;
-    }
 
     public LocalTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalTime startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
 }
+

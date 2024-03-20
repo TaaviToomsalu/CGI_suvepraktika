@@ -34,15 +34,4 @@ public class MovieRecommendationService {
         return movieRepository.findAll();
     }
 
-    // Example method to update user's viewing history
-    public UserAccount updateUserViewingHistory(Long userId, Long[] viewingHistory) {
-        UserAccount user = userRepository.findById(userId).orElse(null);
-        if (user != null) {
-            user.setViewingHistory(viewingHistory);
-            return userRepository.save(user);
-        }
-        return null;
-    }
-
-    // Add more methods as needed...
 }
