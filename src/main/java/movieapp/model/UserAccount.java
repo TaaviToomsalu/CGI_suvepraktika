@@ -2,6 +2,7 @@ package movieapp.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,14 +13,17 @@ public class UserAccount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
-    private Long[] viewingHistory;
+    @ElementCollection
+    @CollectionTable(name = "user_viewing_history", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "movie_id")
+    private List<Integer> viewingHistory = new ArrayList<>();
 
     // Default constructor
     public UserAccount() {
     }
 
     //Constructor
-    public UserAccount(Long id, String username, Long[] viewingHistory) {
+    public UserAccount(Long id, String username, List<Integer> viewingHistory) {
         this.id = id;
         this.username = username;
         this.viewingHistory = viewingHistory;
@@ -42,11 +46,11 @@ public class UserAccount {
         this.username = username;
     }
 
-    public Long[] getViewingHistory() {
+    public List<Integer> getViewingHistory() {
         return viewingHistory;
     }
 
-    public void setViewingHistory(Long[] viewingHistory) {
+    public void setViewingHistory(List<Integer> viewingHistory) {
         this.viewingHistory = viewingHistory;
     }
 
@@ -57,7 +61,7 @@ public class UserAccount {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", viewingHistory=" + Arrays.toString(viewingHistory) +
+                ", viewingHistory=" + viewingHistory +
                 '}';
     }
 

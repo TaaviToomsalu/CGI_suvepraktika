@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -45,7 +46,7 @@ public class UserController {
     }
 
     @PostMapping("/viewing-history/{movieId}")
-    public ResponseEntity<UserAccount> addToViewingHistory(@PathVariable Long movieId, @RequestBody String userId) {
+    public ResponseEntity<UserAccount> addToViewingHistory(@PathVariable int movieId, @RequestBody String userId) {
         try {
             // Convert userId String to Long
             Long userIdLong = Long.parseLong(userId);
@@ -58,24 +59,15 @@ public class UserController {
 
             // Add the movieId to the user's viewing history
             UserAccount user = userOptional.get();
-            Long[] viewingHistory = user.getViewingHistory();
-            int length = viewingHistory.length;
-            viewingHistory = Arrays.copyOf(viewingHistory, length + 1);
-            viewingHistory[length] = movieId;
-            user.setViewingHistory(viewingHistory);
+            List<Integer> viewingHistory = user.getViewingHistory();
+            viewingHistory.add(movieId); // Add the new movieId to the list
 
             // Save the updated user object
             userRepository.save(user);
 
             return ResponseEntity.ok(user);
-        } catch (NumberFormatException e) {
-            // Handle invalid userId
-            return ResponseEntity.badRequest().body("Invalid userId");
         } catch (Exception e) {
-            // Handle other exceptions
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-
-
 }
