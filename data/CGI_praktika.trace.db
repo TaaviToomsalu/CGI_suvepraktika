@@ -44,3 +44,6 @@ Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection wa
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	... 16 more
+2024-03-20 21:41:39.407808+02:00 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS_VIEWING_HISTORY" not found; SQL statement:
+SELECT * FROM USERS_VIEWING_HISTORY [42102-224]
