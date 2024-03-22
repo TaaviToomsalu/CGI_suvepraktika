@@ -4,6 +4,7 @@ import movieapp.model.Movie;
 import movieapp.repository.MovieRepository;
 import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
+import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,18 +20,56 @@ public class DataInitializer {
 
     @PostConstruct
     public void initializeData() {
-        List<Movie> movies = createMovies();
+        List<Movie> movies = createMoviesForWeek();
         movieRepository.saveAll(movies);
     }
 
-    private List<Movie> createMovies() {
+    private List<Movie> createMoviesForWeek() {
         List<Movie> movies = new ArrayList<>();
-        movies.add(new Movie(1, "Movie 1", "Action", 120, "PG-13", LocalTime.of(10, 0), "English"));
-        movies.add(new Movie(2, "Movie 2", "Comedy", 90, "PG", LocalTime.of(12, 0), "English"));
-        movies.add(new Movie(3, "Movie 3", "Drama", 110, "PG-13", LocalTime.of(14, 0), "Spanish"));
-        movies.add(new Movie(4, "Movie 4", "Thriller", 100, "R", LocalTime.of(16, 0), "French"));
-        movies.add(new Movie(5, "Movie 5", "Sci-Fi", 130, "PG-13", LocalTime.of(18, 0), "German"));
-        movies.add(new Movie(6, "Movie 6", "Romance", 105, "PG", LocalTime.of(20, 0), "Italian"));
+        // Define days of the week
+        DayOfWeek[] daysOfWeek = DayOfWeek.values();
+
+        // Original movie schedule
+        LocalTime[] originalTimes = {
+                LocalTime.of(10, 0), // 10:00 AM
+                LocalTime.of(12, 0), // 12:00 PM
+                LocalTime.of(14, 0), // 2:00 PM
+                LocalTime.of(16, 0), // 4:00 PM
+                LocalTime.of(18, 0), // 6:00 PM
+                LocalTime.of(20, 0)  // 8:00 PM
+        };
+
+        // Array of languages
+        String[] languages = {"English", "Spanish", "French", "German", "Italian"};
+
+        // Create movies for each day of the week
+        for (DayOfWeek dayOfWeek : daysOfWeek) {
+            for (int i = 0; i < originalTimes.length; i++) {
+                int movieId = (dayOfWeek.getValue() - 1) * originalTimes.length + (i + 1);
+                movies.add(new Movie(
+                        movieId, // Movie ID
+                        "Movie " + (i + 1), // Movie title
+                        getGenreForIndex(i), // Genre
+                        getAgeRatingForIndex(i), // Age rating
+                        originalTimes[i], // Start time
+                        languages[i % languages.length], // Language
+                        dayOfWeek // Day of the week
+                ));
+            }
+        }
         return movies;
+    }
+
+    // Helper methods to get genre, duration, and age rating based on index
+    private String getGenreForIndex(int index) {
+        // Example implementation
+        String[] genres = {"Action", "Comedy", "Drama", "Thriller", "Sci-Fi", "Romance"};
+        return genres[index % genres.length];
+    }
+
+    private String getAgeRatingForIndex(int index) {
+        // Example implementation
+        String[] ageRatings = {"PG-13", "PG", "G", "R", "PG-13", "NC-17"};
+        return ageRatings[index % ageRatings.length];
     }
 }

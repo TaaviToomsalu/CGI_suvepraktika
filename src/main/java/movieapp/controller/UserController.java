@@ -45,8 +45,8 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
-    @PostMapping("/viewing-history/{movieId}")
-    public ResponseEntity<UserAccount> addToViewingHistory(@PathVariable int movieId, @RequestBody String userId) {
+    @PostMapping("/viewing-history/{movieTitle}")
+    public ResponseEntity<UserAccount> addToViewingHistory(@PathVariable String movieTitle, @RequestBody String userId) {
         try {
             // Convert userId String to Long
             Long userIdLong = Long.parseLong(userId);
@@ -57,10 +57,10 @@ public class UserController {
                 return ResponseEntity.notFound().build();
             }
 
-            // Add the movieId to the user's viewing history
+            // Add the movie title to the user's viewing history
             UserAccount user = userOptional.get();
-            List<Integer> viewingHistory = user.getViewingHistory();
-            viewingHistory.add(movieId); // Add the new movieId to the list
+            List<String> viewingHistory = user.getViewingHistory();
+            viewingHistory.add(movieTitle);
 
             // Save the updated user object
             userRepository.save(user);

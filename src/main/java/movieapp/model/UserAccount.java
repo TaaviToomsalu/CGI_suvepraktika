@@ -15,15 +15,21 @@ public class UserAccount {
     private String username;
     @ElementCollection
     @CollectionTable(name = "user_viewing_history", joinColumns = @JoinColumn(name = "user_id"))
-    @Column(name = "movie_id")
-    private List<Integer> viewingHistory = new ArrayList<>();
+    @Column(name = "movie_title")
+    private List<String> viewingHistory = new ArrayList<>();
+
+    // Define a new field to store the genres of viewed movies
+    @ElementCollection
+    @CollectionTable(name = "user_viewing_genre", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "movie_genre")
+    private List<String> viewingGenres = new ArrayList<>();
 
     // Default constructor
     public UserAccount() {
     }
 
     //Constructor
-    public UserAccount(Long id, String username, List<Integer> viewingHistory) {
+    public UserAccount(Long id, String username, List<String> viewingHistory) {
         this.id = id;
         this.username = username;
         this.viewingHistory = viewingHistory;
@@ -46,12 +52,22 @@ public class UserAccount {
         this.username = username;
     }
 
-    public List<Integer> getViewingHistory() {
+    public List<String> getViewingHistory() {
         return viewingHistory;
     }
 
-    public void setViewingHistory(List<Integer> viewingHistory) {
+    public void setViewingHistory(List<String> viewingHistory) {
         this.viewingHistory = viewingHistory;
+    }
+
+    // Getter for viewingGenres
+    public List<String> getViewingGenres() {
+        return viewingGenres;
+    }
+
+    // Setter for viewingGenres
+    public void setViewingGenres(List<String> viewingGenres) {
+        this.viewingGenres = viewingGenres;
     }
 
 
