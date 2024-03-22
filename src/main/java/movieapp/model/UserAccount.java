@@ -18,6 +18,12 @@ public class UserAccount {
     @Column(name = "movie_title")
     private List<String> viewingHistory = new ArrayList<>();
 
+    // Define a new field to store the genres of viewed movies
+    @ElementCollection
+    @CollectionTable(name = "user_viewing_genre", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "movie_genre")
+    private List<String> viewingGenres = new ArrayList<>();
+
     // Default constructor
     public UserAccount() {
     }
@@ -52,6 +58,16 @@ public class UserAccount {
 
     public void setViewingHistory(List<String> viewingHistory) {
         this.viewingHistory = viewingHistory;
+    }
+
+    // Getter for viewingGenres
+    public List<String> getViewingGenres() {
+        return viewingGenres;
+    }
+
+    // Setter for viewingGenres
+    public void setViewingGenres(List<String> viewingGenres) {
+        this.viewingGenres = viewingGenres;
     }
 
 

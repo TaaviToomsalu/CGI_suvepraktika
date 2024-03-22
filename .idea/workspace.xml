@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19f4fb0c-6181-4680-99c3-f89578a71cae" name="Changes" comment="Date for movies, initializing databse with 7 days of movies">
+    <list default="true" id="19f4fb0c-6181-4680-99c3-f89578a71cae" name="Changes" comment="There are now 7 days filled with movies, also user viewing history takes movieTitle instead of userId">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/CGI_praktika.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/CGI_praktika.trace.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/movieapp/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/movieapp/DataInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/movieapp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/movieapp/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/movieapp/model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/movieapp/model/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/movieapp/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/movieapp/controller/MovieController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/movieapp/model/UserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/movieapp/model/UserAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/movieapp/service/MovieRecommendationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/movieapp/service/MovieRecommendationService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +50,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "5b165dd8",
+    "git-widget-placeholder": "40541d16",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -155,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710930947361</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="There are now 7 days filled with movies, also user viewing history takes movieTitle instead of userId">
+      <option name="closed" value="true" />
+      <created>1710964580075</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1710964580075</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,6 +215,7 @@
     <MESSAGE value="Trying to make the addToViewingHistory work." />
     <MESSAGE value="Readme file" />
     <MESSAGE value="Date for movies, initializing databse with 7 days of movies" />
-    <option name="LAST_COMMIT_MESSAGE" value="Date for movies, initializing databse with 7 days of movies" />
+    <MESSAGE value="There are now 7 days filled with movies, also user viewing history takes movieTitle instead of userId" />
+    <option name="LAST_COMMIT_MESSAGE" value="There are now 7 days filled with movies, also user viewing history takes movieTitle instead of userId" />
   </component>
 </project>

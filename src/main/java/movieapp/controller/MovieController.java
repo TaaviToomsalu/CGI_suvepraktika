@@ -1,5 +1,8 @@
 package movieapp.controller;
 
+import movieapp.model.UserAccount;
+import movieapp.repository.UserAccountRepository;
+import movieapp.service.MovieRecommendationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +21,12 @@ public class MovieController {
 
     @Autowired
     private MovieRepository movieRepository;
+
+    @Autowired
+    private UserAccountRepository userAccountRepository;
+
+    @Autowired
+    private MovieRecommendationService recommendationService;
 
     @GetMapping("/")
     public ResponseEntity<String> helloWorld() {
@@ -57,5 +66,17 @@ public class MovieController {
     public ResponseEntity<List<Movie>> getMoviesByAgeRating(@RequestParam String ageRating) {
         List<Movie> movies = movieRepository.findByAgeRating(ageRating);
         return ResponseEntity.ok(movies);
+    }
+
+
+    @GetMapping("/movies/recommendations")
+    public ResponseEntity<List<Movie>> getRecommendationsForUser(@RequestParam Long userId) {
+        UserAccount user = userAccountRepository.findById(userId).orElse(null);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        List<Movie> recommendations = recommendationService.getRecommendationsForUser(userId);
+        return ResponseEntity.ok(recommendations);
     }
 }

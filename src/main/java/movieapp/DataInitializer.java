@@ -39,6 +39,9 @@ public class DataInitializer {
                 LocalTime.of(20, 0)  // 8:00 PM
         };
 
+        // Array of languages
+        String[] languages = {"English", "Spanish", "French", "German", "Italian"};
+
         // Create movies for each day of the week
         for (DayOfWeek dayOfWeek : daysOfWeek) {
             for (int i = 0; i < originalTimes.length; i++) {
@@ -49,7 +52,7 @@ public class DataInitializer {
                         getGenreForIndex(i), // Genre
                         getAgeRatingForIndex(i), // Age rating
                         originalTimes[i], // Start time
-                        "Language " + (i + 1), // Language
+                        languages[i % languages.length], // Language
                         dayOfWeek // Day of the week
                 ));
             }
